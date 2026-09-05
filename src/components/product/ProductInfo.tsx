@@ -30,6 +30,13 @@ export function ProductInfo() {
   const showColor = !!product.colorOptions?.length;
   const currentColor = product.colorOptions?.find((o) => o.label === color);
 
+  // Auto-seleciona a primeira opção válida quando troca de produto
+  useEffect(() => {
+    if (product.colorOptions?.length && !product.colorOptions.some((o) => o.label === color)) {
+      checkoutStore.set({ color: product.colorOptions[0].label });
+    }
+  }, [product, color]);
+
   // Valor da parcela em 12x
   const installmentValue = (product.price / 12).toFixed(2).replace(".", ",");
 
@@ -148,7 +155,8 @@ export function ProductInfo() {
         {showColor && (
           <>
             <div className="text-sm text-muted-foreground">
-              Cor: <span className="font-medium text-foreground">{color}</span>
+              {product.colorOptionsLabel ?? "Cor"}:{" "}
+              <span className="font-medium text-foreground">{currentColor?.label ?? color}</span>
               {currentColor && (
                 <span className="ml-2 text-xs text-primary">
                   {currentColor.stock} unidades disponíveis

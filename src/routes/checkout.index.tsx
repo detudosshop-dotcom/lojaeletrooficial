@@ -144,7 +144,7 @@ function Checkout() {
             )}
             {showColor && selectedColor && (
               <div className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <span>Cor:</span>
+                <span>{product.colorOptionsLabel ?? "Cor"}:</span>
                 <span className="rounded border border-primary/30 bg-primary/5 px-1.5 py-0.5 text-[11px] font-semibold text-primary">
                   {selectedColor.label}
                 </span>

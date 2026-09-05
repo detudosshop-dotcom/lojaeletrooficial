@@ -35,6 +35,8 @@ export type Product = {
   images: string[];
   /** Voltagem opcional — só aparece em produtos elétricos com 127/220V */
   voltageOptions?: ("127V" | "220V")[];
+  /** Rótulo customizado para opções (ex: "Modelo", "Versão", padrão "Cor") */
+  colorOptionsLabel?: string;
   /** Opções de cor (ex: relógio em diferentes combinações de caixa/mostrador) */
   colorOptions?: { label: string; images: string[]; stock: number }[];
   description: {
@@ -86,6 +88,20 @@ import garrafaCorPink3 from "@/assets/garrafa-cor-pink-3.png";
 import garrafaCorMelancia from "@/assets/garrafa-cor-melancia.png";
 import garrafaCorMelancia2 from "@/assets/garrafa-cor-melancia-2.png";
 import garrafaCorMelancia3 from "@/assets/garrafa-cor-melancia-3.png";
+
+import kit48v1 from "@/assets/kit-48v-1.webp";
+import kit48v2 from "@/assets/kit-48v-2.webp";
+import kit48v3 from "@/assets/kit-48v-3.webp";
+import kit48v4 from "@/assets/kit-48v-4.webp";
+import kit48v5 from "@/assets/kit-48v-5.webp";
+import kit48v6 from "@/assets/kit-48v-6.webp";
+import kit48v7 from "@/assets/kit-48v-7.webp";
+import kit48v8 from "@/assets/kit-48v-8.webp";
+import kit48v9 from "@/assets/kit-48v-9.webp";
+import produtoKitFerramentas from "@/assets/produto-kit-ferramentas.jpg";
+import produtoFuradeira from "@/assets/produto-furadeira.jpg";
+import produtoParafusadeira from "@/assets/produto-parafusadeira.jpg";
+import produtoEsmerilhadeira from "@/assets/produto-esmerilhadeira.jpg";
 
 const ASP = "https://svzmueexktjqcssaitzp.supabase.co/storage/v1/object/public/product-images/aspirador";
 const LAV = "https://obtjwxuspfvhnijncwud.supabase.co/storage/v1/object/public/product-images";
@@ -2607,6 +2623,145 @@ export const products: Product[] = [
     meta: {
       title: "Extratora Higienizadora Portátil Spot Cleaner W3 - 83% OFF",
       description: "Extratora higienizadora portátil que borrifa, esfrega e extrai sujeira de colchões, sofás e estofados. 127V/220V, frete grátis e envio imediato.",
+    },
+  },
+  {
+    id: "kit-ferramentas-48v",
+    slug: "conjunto-ferramentas-eletricas-48v-brushless",
+    name: "Conjunto de Ferramentas Elétricas Sem Fio 48V Sem Escova | Kit Completo 4‑em‑1 ou Ferramenta Vendida Separadamente, Furadeira, Esmerilhadeira, Chave e Parafusadeira de Impacto",
+    shortName: "Kit Ferramentas 48V Sem Escova 4-em-1",
+    tagline: "Motor Brushless · 48V Max Lithium · Kit 4 em 1 com Maleta e 2 Baterias",
+    price: 97.9,
+    oldPrice: 489.5,
+    discount: 80,
+    rating: 4.9,
+    reviews: 1482,
+    reviewsTotal: 1482,
+    sold: 8640,
+    freeShipping: true,
+    images: [
+      kit48v1,
+      kit48v2,
+      kit48v3,
+      kit48v4,
+      kit48v5,
+      kit48v6,
+      kit48v7,
+      kit48v8,
+      kit48v9,
+    ],
+    colorOptionsLabel: "Modelo / Opção",
+    colorOptions: [
+      {
+        label: "Kit Completo 4 em 1 (Maleta + 2 Baterias 48V)",
+        images: [kit48v1],
+        stock: 5,
+      },
+      {
+        label: "Furadeira / Parafusadeira de Impacto 48V",
+        images: [kit48v2],
+        stock: 8,
+      },
+      {
+        label: "Esmerilhadeira Angular 48V Brushless",
+        images: [kit48v3],
+        stock: 4,
+      },
+      {
+        label: "Chave de Impacto 48V Brushless",
+        images: [kit48v4],
+        stock: 6,
+      },
+    ],
+    description: {
+      intro: "Por que o Conjunto de Ferramentas Elétricas Sem Fio 48V Sem Escova é o kit definitivo para sua casa e trabalho?",
+      features: [
+        ["Motor Brushless Sem Escovas de Alta Potência", "Maior vida útil, menor aquecimento e até 50% mais autonomia e torque que motores comuns com escovas de carvão."],
+        ["Sistema de Baterias 48V Max Lithium", "Acompanha 2 baterias de alta capacidade com indicador LED de carga e carregador bivolt inteligente (110V/220V)."],
+        ["Kit Completo 4 em 1 Multifunção", "Furadeira de impacto para concreto e alvenaria, parafusadeira de precisão com torque ajustável, chave de impacto para oficinas e esmerilhadeira angular para cortes e desbastes."],
+        ["Maleta Rígida Anti-Impacto com Acessórios", "Organização perfeita para transporte e armazenamento: inclui brocas, soquetes, discos de corte, pontas de parafusar e empunhaduras ergonômicas."],
+        ["Design Ergonômico Emborrachado com LED", "Pegada antiderrapante com redução de vibração e luz LED auxiliar para trabalhar em locais escuros ou de difícil acesso."],
+        ["Mandril de Engate Rápido em Metal", "Troca rápida e segura de brocas e pontas sem necessidade de chaves complicadas."],
+      ],
+      specs: [
+        "Tensão das Baterias: 48V Max Íon de Lítio (2 Unidades de alta capacidade inclusas)",
+        "Tipo de Motor: Brushless (Sem escova de carvão - máxima durabilidade e força)",
+        "Carregador: Bivolt Automático (110V - 220V) com recarga rápida inteligente",
+        "Furadeira / Parafusadeira: 2 velocidades mecânicas (0-450 / 0-1650 RPM), torque ajustável 25+3 posições, função impacto",
+        "Chave de Impacto: Torque máximo de 380 N.m, encaixe quadrado padrão 1/2\"",
+        "Esmerilhadeira Angular: Rotação de 8.500 RPM, diâmetro do disco 115mm (4.1/2\") com capa de proteção",
+        "Mandril: Aperto rápido de 10mm (3/8\") a 13mm (1/2\") de aço temperado",
+        "Material: Plástico de engenharia ABS reforçado, liga de alumínio e engrenagens de aço",
+        "Peso com maleta e acessórios: Aproximadamente 5,4 kg",
+      ],
+      idealFor: [
+        "Profissionais da construção civil, marcenaria, serralheria e mecânica",
+        "Manutenção predial, reformas residenciais e projetos DIY (Faça Você Mesmo)",
+        "Instalação de móveis, prateleiras, armários e painéis de TV",
+        "Cortes em ferro, concreto, madeira, tubos de PVC e alvenaria",
+        "Apertar e soltar parafusos pesados, porcas de rodas de veículos e estruturas metálicas",
+      ],
+      includes: [
+        "1 Furadeira / Parafusadeira de Impacto 48V Brushless",
+        "1 Chave de Impacto 48V Brushless",
+        "1 Esmerilhadeira Angular 48V Brushless",
+        "2 Baterias 48V Max de Lítio Recarregáveis",
+        "1 Carregador Rápido Bivolt (110V/220V)",
+        "1 Maleta Rígida Reforçada para Transporte",
+        "1 Jogo de Brocas (Aço rápido, concreto e madeira)",
+        "1 Jogo de Soquetes de Impacto e Adaptadores",
+        "1 Jogo de Pontas / Bits de Parafusar com Extensor",
+        "1 Chave e Protetor para Esmerilhadeira",
+        "1 Manual de Instruções em Português",
+      ],
+    },
+    reviewsList: [
+      {
+        initial: "R",
+        name: "Rodrigo M. Silveira",
+        date: "04 set. 2026",
+        text: "Superou todas as expectativas! O motor sem escova realmente entrega muita força, apertei os parafusos das rodas da caminhonete sem esforço nenhum. A maleta veio impecável e as duas baterias duram o dia todo de serviço.",
+        photos: [kit48v1, produtoKitFerramentas],
+      },
+      {
+        initial: "E",
+        name: "Eduardo Fonseca",
+        date: "02 set. 2026",
+        text: "Kit muito completo e robusto. Usei a furadeira no concreto em casa e furou com muita facilidade na função impacto. A esmerilhadeira também cortou cantoneira de aço como manteiga. Recomendo de olhos fechados!",
+        photos: [produtoFuradeira, kit48v3],
+      },
+      {
+        initial: "C",
+        name: "Carlos Henrique P.",
+        date: "30 ago. 2026",
+        text: "Entrega super rápida, chegou em 3 dias aqui em São Paulo! As duas baterias vieram já com carga. A chave de impacto tem um torque absurdo. Vale muito a pena pelo preço promocional.",
+        photos: [kit48v4, kit48v6],
+      },
+      {
+        initial: "M",
+        name: "Marcelo Albuquerque",
+        date: "27 ago. 2026",
+        text: "Trabalho com montagem de móveis e instalação de drywall, essa parafusadeira facilitou demais o meu dia. O LED frontal ajuda bastante e o peso é bem equilibrado, não cansa o braço.",
+        photos: [produtoParafusadeira, kit48v2],
+      },
+      {
+        initial: "J",
+        name: "João Paulo Batista",
+        date: "22 ago. 2026",
+        text: "Excelente acabamento, plástico grosso e emborrachado de primeira linha. Cortei tubos de metal e lixei peças com a esmerilhadeira, não esquenta nada. Produto nota 10!",
+        photos: [produtoEsmerilhadeira, kit48v9],
+      },
+      {
+        initial: "F",
+        name: "Fernando Ramos",
+        date: "18 ago. 2026",
+        text: "Melhor compra que fiz no ano. Só a maleta com as ferramentas completas e 2 baterias já valeria o dobro em qualquer loja de material de construção. Podem comprar sem medo.",
+        photos: [kit48v1, kit48v8],
+      },
+    ],
+    meta: {
+      title: "Conjunto de Ferramentas Elétricas Sem Fio 48V Sem Escova 4 em 1 - 80% OFF",
+      description: "Kit Completo de Ferramentas Elétricas 48V Brushless: Furadeira, Parafusadeira, Esmerilhadeira e Chave de Impacto com 2 Baterias e Maleta. Frete Grátis e Envio Imediato.",
     },
   },
 ];

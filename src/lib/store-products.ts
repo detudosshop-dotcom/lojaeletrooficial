@@ -31,6 +31,7 @@ const boombox = products.find((p) => p.id === "boombox-aiwa-200w")!;
 const iphone17 = products.find((p) => p.id === "iphone-17-pro")!;
 const pistolaW129 = products.find((p) => p.id === "pistola-rossi-w129")!;
 const extratoraW3 = products.find((p) => p.id === "extratora-w3")!;
+const kitFerramentas = products.find((p) => p.id === "kit-ferramentas-48v")!;
 
 
 // === Top 15 produtos importados da famosinhoshop (compráveis com página completa) ===
@@ -69,8 +70,10 @@ function buyable(p: typeof famosinho25, shortDesc: string): StoreProduct {
 }
 
 export const storeProducts: StoreProduct[] = [
-  // === Produtos originais da loja ===
+  // === Destaques da Loja (Mais Vendidos) ===
+  buyable(kitFerramentas, "Kit Completo de Ferramentas Elétricas Sem Fio 48V Sem Escova (Brushless). Furadeira, esmerilhadeira, parafusadeira e chave de impacto com 2 baterias de alta duração e maleta rígida anti-impacto."),
   buyable(lavadora, "Potente, compacta e ideal para limpar carro, calçada, paredes e muito mais. Vem completa com pistola, mangueira e bicos."),
+  buyable(extratoraW3, "Extratora e higienizadora portátil que borrifa, esfrega e suga a sujeira profunda de colchões, sofás, poltronas e bancos de carro."),
   buyable(aspirador, "Mini aspirador 3 em 1 com 6000Pa, sem fio e recarregável. Aspira, sopra e infla — perfeito para carro, casa e eletrônicos."),
   buyable(relogio, "Relógio masculino à prova d'água com pulseira em aço inox, movimento Quartz e design inspirado no Submariner. Elegante para qualquer ocasião."),
   buyable(garrafa, "Garrafa térmica de aço inox 650ml com estampa exclusiva da Nossa Senhora Aparecida em aquarela. Mantém fria por 24h e quente por 12h."),

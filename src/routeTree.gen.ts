@@ -18,6 +18,7 @@ import { Route as CheckoutSucessoRouteImport } from './routes/checkout.sucesso'
 import { Route as CheckoutPagamentoRouteImport } from './routes/checkout.pagamento'
 import { Route as CheckoutEnderecoRouteImport } from './routes/checkout.endereco'
 import { Route as ApiPublicFreepayWebhookRouteImport } from './routes/api/public/freepay-webhook'
+import { Route as ApiPublicFlevopayWebhookRouteImport } from './routes/api/public/flevopay-webhook'
 
 const LojaRoute = LojaRouteImport.update({
   id: '/loja',
@@ -64,6 +65,12 @@ const ApiPublicFreepayWebhookRoute = ApiPublicFreepayWebhookRouteImport.update({
   path: '/api/public/freepay-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicFlevopayWebhookRoute =
+  ApiPublicFlevopayWebhookRouteImport.update({
+    id: '/api/public/flevopay-webhook',
+    path: '/api/public/flevopay-webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/checkout/sucesso': typeof CheckoutSucessoRoute
   '/produto/$slug': typeof ProdutoSlugRoute
   '/checkout/': typeof CheckoutIndexRoute
+  '/api/public/flevopay-webhook': typeof ApiPublicFlevopayWebhookRoute
   '/api/public/freepay-webhook': typeof ApiPublicFreepayWebhookRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +92,7 @@ export interface FileRoutesByTo {
   '/checkout/sucesso': typeof CheckoutSucessoRoute
   '/produto/$slug': typeof ProdutoSlugRoute
   '/checkout': typeof CheckoutIndexRoute
+  '/api/public/flevopay-webhook': typeof ApiPublicFlevopayWebhookRoute
   '/api/public/freepay-webhook': typeof ApiPublicFreepayWebhookRoute
 }
 export interface FileRoutesById {
@@ -96,6 +105,7 @@ export interface FileRoutesById {
   '/checkout/sucesso': typeof CheckoutSucessoRoute
   '/produto/$slug': typeof ProdutoSlugRoute
   '/checkout/': typeof CheckoutIndexRoute
+  '/api/public/flevopay-webhook': typeof ApiPublicFlevopayWebhookRoute
   '/api/public/freepay-webhook': typeof ApiPublicFreepayWebhookRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/checkout/sucesso'
     | '/produto/$slug'
     | '/checkout/'
+    | '/api/public/flevopay-webhook'
     | '/api/public/freepay-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/checkout/sucesso'
     | '/produto/$slug'
     | '/checkout'
+    | '/api/public/flevopay-webhook'
     | '/api/public/freepay-webhook'
   id:
     | '__root__'
@@ -130,6 +142,7 @@ export interface FileRouteTypes {
     | '/checkout/sucesso'
     | '/produto/$slug'
     | '/checkout/'
+    | '/api/public/flevopay-webhook'
     | '/api/public/freepay-webhook'
   fileRoutesById: FileRoutesById
 }
@@ -138,6 +151,7 @@ export interface RootRouteChildren {
   CheckoutRoute: typeof CheckoutRouteWithChildren
   LojaRoute: typeof LojaRoute
   ProdutoSlugRoute: typeof ProdutoSlugRoute
+  ApiPublicFlevopayWebhookRoute: typeof ApiPublicFlevopayWebhookRoute
   ApiPublicFreepayWebhookRoute: typeof ApiPublicFreepayWebhookRoute
 }
 
@@ -206,6 +220,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicFreepayWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/flevopay-webhook': {
+      id: '/api/public/flevopay-webhook'
+      path: '/api/public/flevopay-webhook'
+      fullPath: '/api/public/flevopay-webhook'
+      preLoaderRoute: typeof ApiPublicFlevopayWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -232,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   CheckoutRoute: CheckoutRouteWithChildren,
   LojaRoute: LojaRoute,
   ProdutoSlugRoute: ProdutoSlugRoute,
+  ApiPublicFlevopayWebhookRoute: ApiPublicFlevopayWebhookRoute,
   ApiPublicFreepayWebhookRoute: ApiPublicFreepayWebhookRoute,
 }
 export const routeTree = rootRouteImport

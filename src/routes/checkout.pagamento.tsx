@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, Copy, Check, Loader2, ShieldCheck, Lock, CreditCard, Truck, RefreshCcw, HeadphonesIcon, Zap, BadgeCheck, Clock, Smartphone, Building2, ScanLine, CheckCircle2 } from "lucide-react";
 import QRCode from "qrcode";
 import { useCheckoutData } from "@/lib/checkout-store";
-import { createPixTransaction, getPixStatus } from "@/lib/freepay.functions";
+import { createPixTransaction, getPixStatus } from "@/lib/flevopay.functions";
 import { sendUtmifyOrder } from "@/lib/utmify.functions";
 import { getTracking } from "@/lib/utm-store";
 import { CheckoutSteps } from "@/components/checkout/CheckoutSteps";

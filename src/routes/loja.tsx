@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Flame,
   Zap,
+  MessageCircle,
 } from "lucide-react";
 import { storeProducts, StoreProduct } from "@/lib/store-products";
 import { useCartUI } from "@/components/cart/CartUIContext";
@@ -22,6 +23,7 @@ import { useCartCount, cartStore } from "@/lib/cart-store";
 import { activeProductStore } from "@/lib/active-product-store";
 import storeLogo from "@/assets/store-logo.jpg";
 import { TrustBar } from "@/components/product/TrustBar";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export const Route = createFileRoute("/loja")({
   head: () => ({
@@ -45,6 +47,7 @@ function LojaPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState<TabType>("todos");
   const [isFollowing, setIsFollowing] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
   const [collectedVouchers, setCollectedVouchers] = useState<Record<string, boolean>>({
     v1: true,
   });
@@ -96,6 +99,16 @@ function LojaPage() {
             className="w-full bg-transparent text-[13px] text-foreground placeholder:text-muted-foreground/70 outline-none"
           />
         </div>
+
+        {/* Chat de atendimento com a Júlia */}
+        <button
+          type="button"
+          onClick={() => setChatOpen(true)}
+          aria-label="Falar no chat da loja"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full hover:bg-muted active:scale-95 text-foreground transition-all"
+        >
+          <MessageCircle className="h-4 w-4" />
+        </button>
 
         {/* Compartilhar */}
         <button
@@ -383,6 +396,7 @@ function LojaPage() {
           </p>
         </div>
       </main>
+      <ChatWidget open={chatOpen} onClose={() => setChatOpen(false)} />
     </div>
   );
 }

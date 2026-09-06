@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { X, Send, MessageCircle, Loader2 } from "lucide-react";
 import storeLogo from "@/assets/store-logo.jpg";
-import { sendChatMessage, type ChatMessage } from "@/lib/chat.functions";
+import { sendChatMessage, generateAssistantReply, type ChatMessage } from "@/lib/chat.functions";
 import { useActiveProductSlug } from "@/lib/active-product-store";
 import { getProductBySlug, MAIN_PRODUCT_SLUG } from "@/lib/catalog";
 
@@ -65,26 +65,17 @@ export function ChatWidget({ open, onClose }: { open: boolean; onClose: () => vo
       const res = await sendChat({
         data: { messages: next.slice(-20), productSlug: slug },
       });
-      if (res.ok && res.reply) {
+      if (res && res.ok && res.reply) {
         setMessages((prev) => [...prev, { role: "assistant", content: res.reply! }]);
       } else {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: res.error ?? "Desculpe, não consegui responder. Tente novamente.",
-          },
-        ]);
+        const product = getProductBySlug(slug) ?? getProductBySlug(MAIN_PRODUCT_SLUG)!;
+        const localReply = generateAssistantReply(trimmed, product);
+        setMessages((prev) => [...prev, { role: "assistant", content: localReply }]);
       }
-    } catch (e) {
-      console.error(e);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "Tive um problema de conexão. Pode tentar de novo?",
-        },
-      ]);
+    } catch {
+      const product = getProductBySlug(slug) ?? getProductBySlug(MAIN_PRODUCT_SLUG)!;
+      const localReply = generateAssistantReply(trimmed, product);
+      setMessages((prev) => [...prev, { role: "assistant", content: localReply }]);
     } finally {
       setLoading(false);
     }

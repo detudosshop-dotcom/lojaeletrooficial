@@ -7,7 +7,7 @@ import {
   Eye,
   ShoppingBag,
   Clock,
-  CreditCard,
+  Zap,
   ChevronRight,
   Ticket,
   Bookmark,
@@ -37,9 +37,6 @@ export function ProductInfo() {
     }
   }, [product, color]);
 
-  // Valor da parcela em 12x
-  const installmentValue = (product.price / 12).toFixed(2).replace(".", ",");
-
   // Contador "pessoas vendo agora" oscilando entre 80-160
   const [viewers, setViewers] = useState(127);
   useEffect(() => {
@@ -57,13 +54,13 @@ export function ProductInfo() {
 
   return (
     <section className="space-y-3 bg-card px-4 py-3.5 shadow-xs">
-      {/* Linha de Parcelamento em 12x */}
-      <div className="flex items-center justify-between text-xs text-foreground/90 font-medium">
+      {/* Destaque Pagamento Exclusivo via Pix */}
+      <div className="flex items-center justify-between rounded-md bg-[#e8f5e9] border border-[#c8e6c9] px-3 py-2 text-xs font-bold text-[#2e7d32]">
         <div className="flex items-center gap-1.5">
-          <CreditCard className="h-4 w-4 text-muted-foreground" />
-          <span>12x de R$ {installmentValue}</span>
+          <Zap className="h-4 w-4 fill-[#00c853] text-[#00c853]" />
+          <span>Pagamento via Pix · 5% de desconto imediato</span>
         </div>
-        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
+        <span className="text-[10.5px] font-black text-[#00c853] uppercase">Aprovação na hora</span>
       </div>
 
       {/* Badges de Cupons em Rosa/Pink estilo TikTok Shop */}

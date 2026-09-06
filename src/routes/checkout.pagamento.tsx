@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, Copy, Check, Loader2, ShieldCheck, Lock, CreditCard, Truck, RefreshCcw, HeadphonesIcon, Zap, BadgeCheck, Clock, Smartphone, Building2, ScanLine, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Copy, Check, Loader2, ShieldCheck, Lock, Truck, RefreshCcw, HeadphonesIcon, Zap, BadgeCheck, Clock, Smartphone, Building2, ScanLine, CheckCircle2 } from "lucide-react";
 import QRCode from "qrcode";
 import { useCheckoutData } from "@/lib/checkout-store";
 import { createPixTransaction, getPixStatus } from "@/lib/flevopay.functions";
@@ -684,7 +684,7 @@ function PagamentoPage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-1.5 rounded-md border border-border p-3 text-center">
-              <CreditCard className="h-5 w-5 text-primary" />
+              <Zap className="h-5 w-5 fill-success text-success" />
               <p className="text-[11px] font-semibold leading-tight text-foreground">
                 Pagamento Pix
               </p>

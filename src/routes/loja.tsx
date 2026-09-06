@@ -410,7 +410,6 @@ function TikTokProductCard({
   index: number;
   onAddToCart: () => void;
 }) {
-  const installment = (product.price / 12).toFixed(2).replace(".", ",");
   const [priceInt, priceDec] = product.price.toFixed(2).split(".");
 
   const card = (
@@ -464,9 +463,9 @@ function TikTokProductCard({
             )}
           </div>
 
-          {/* Parcelamento pequeno */}
-          <div className="mt-0.5 text-[10px] text-muted-foreground">
-            ou 12x de R$ {installment}
+          {/* Destaque Pix */}
+          <div className="mt-0.5 text-[10.5px] font-bold text-[#00c853] flex items-center gap-1">
+            <Zap className="h-3 w-3 fill-[#00c853]" /> 5% OFF no Pix
           </div>
 
           {/* Título do produto com 2 linhas */}

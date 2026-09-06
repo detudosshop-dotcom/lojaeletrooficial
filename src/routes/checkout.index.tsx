@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ShieldCheck, Lock, CreditCard, Truck, HeadphonesIcon, BadgeCheck, Zap, Minus, Plus } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Lock, Truck, HeadphonesIcon, BadgeCheck, Zap, Minus, Plus } from "lucide-react";
 import { brl, computeOrderTotals, EXPRESS_SHIPPING_PRICE } from "@/lib/pricing";
 import { storeConfig, warrantyLabel, returnLabel } from "@/lib/store-config";
 import { getPixDiscount, useCouponApplied } from "@/lib/coupon-store";
@@ -301,12 +301,12 @@ function Checkout() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-1.5 rounded-md border border-border p-3 text-center">
-              <CreditCard className="h-5 w-5 text-primary" />
+              <Zap className="h-5 w-5 fill-success text-success" />
               <p className="text-[11px] font-semibold leading-tight text-foreground">
-                Pagamento seguro
+                Pagamento via Pix
               </p>
               <p className="text-[10px] leading-tight text-muted-foreground">
-                Pix e cartões com total segurança
+                Aprovação imediata e 5% de desconto
               </p>
             </div>
             <div className="flex flex-col items-center gap-1.5 rounded-md border border-border p-3 text-center">

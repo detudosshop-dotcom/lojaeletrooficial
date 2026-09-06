@@ -32,8 +32,7 @@ INFORMAÇÕES DA LOJA:
 - ${storeConfig.security.paymentLabel}
 
 FORMAS DE PAGAMENTO:
-- Pix (5% OFF, aprovação na hora)
-- Cartão de crédito em até 12x
+- Pix exclusivo com 5% OFF e aprovação imediata na hora
 
 ENTREGA:
 - Envio em 24h após a confirmação do pagamento
@@ -89,7 +88,6 @@ export function generateAssistantReply(userQuestion: string, product: Product): 
   const q = userQuestion.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   const totals = computeOrderTotals({ unitPrice: product.price });
   const pixPrice = (totals.pixTotalCents / 100).toFixed(2).replace(".", ",");
-  const card12x = (product.price / 12).toFixed(2).replace(".", ",");
   const oldPrice = product.oldPrice.toFixed(2).replace(".", ",");
 
   // 1. Prazo de entrega / Frete / Envio / Rastreamento / CEP
@@ -118,7 +116,7 @@ export function generateAssistantReply(userQuestion: string, product: Product): 
     q.includes("preco") ||
     q.includes("custa")
   ) {
-    return `Sim! No Pix você ganha 5% de desconto imediato e o valor cai de R$ ${oldPrice} para apenas R$ ${pixPrice}! ⚡ A aprovação é na hora e o pedido já entra direto na fila de envio prioritário. Você também pode parcelar em até 12x de R$ ${card12x} no cartão de crédito.`;
+    return `Sim! Trabalhamos com pagamento exclusivo via Pix, onde você ganha 5% de desconto imediato e o valor promocional cai de R$ ${oldPrice} para apenas R$ ${pixPrice}! ⚡ A aprovação é na hora e o seu pedido já entra direto na fila de envio prioritário.`;
   }
 
   // 3. Garantia / Defeito / Troca / Devolução / Reembolso / Confiança / Segurança
@@ -194,14 +192,15 @@ export function generateAssistantReply(userQuestion: string, product: Product): 
     return `O equipamento conta com tecnologia de motor Brushless (sem escovas de carvão), que entrega alta potência, menor aquecimento e maior durabilidade! Fura concreto e alvenaria com muita facilidade na função impacto, aperta parafusos pesados e executa cortes rápidos e limpos. 💪`;
   }
 
-  // 8. Formas de pagamento / Cartão / Parcelamento
+  // 8. Formas de pagamento / Pix / Cartão
   if (
     q.includes("pagamento") ||
     q.includes("cartao") ||
     q.includes("parcel") ||
-    q.includes("vezes")
+    q.includes("vezes") ||
+    q.includes("forma")
   ) {
-    return `Aceitamos Pix com 5% de desconto imediato e aprovação na hora, ou Cartão de Crédito em até 12x de R$ ${card12x}! Ambas as formas contam com aprovação rápida e segurança total. 💳`;
+    return `Trabalhamos exclusivamente com pagamento via Pix! ⚡ Pagando no Pix você garante 5% de desconto imediato (saindo por apenas R$ ${pixPrice}), aprovação instantânea na hora e envio prioritário em até 24h úteis!`;
   }
 
   // 9. Estoque / É novo / Original / Nota fiscal
@@ -235,7 +234,7 @@ export function generateAssistantReply(userQuestion: string, product: Product): 
   }
 
   // Resposta padrão contextualizada e útil
-  return `O ${product.shortName} está em promoção exclusiva por apenas R$ ${pixPrice} no Pix (ou até 12x de R$ ${card12x}) com FRETE GRÁTIS e envio imediato em até 24h úteis! 🚚\n\nPosso te ajudar com dúvidas sobre itens da maleta, garantia de 90 dias ou prazo de entrega. O que você precisa saber?`;
+  return `O ${product.shortName} está em promoção exclusiva por apenas R$ ${pixPrice} no Pix com 5% de desconto imediato, FRETE GRÁTIS e envio prioritário em até 24h úteis! 🚚\n\nPosso te ajudar com dúvidas sobre itens da maleta, garantia de 90 dias ou prazo de entrega. O que você precisa saber?`;
 }
 
 export const sendChatMessage = createServerFn({ method: "POST" })

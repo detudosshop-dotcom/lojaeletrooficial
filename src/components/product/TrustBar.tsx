@@ -108,7 +108,7 @@ export function TrustBar() {
         </li>
         <li className="flex items-center gap-1.5">
           <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-success" />
-          Não armazenamos dados de cartão ou bancários
+          Pagamento 100% seguro via Pix oficial do Banco Central
         </li>
         <li className="flex items-center gap-1.5">
           <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-success" />

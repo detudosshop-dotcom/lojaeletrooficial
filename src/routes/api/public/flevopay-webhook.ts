@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { formatUtmifyDate, sendUtmifyOrderCore } from "@/lib/utmify.server";
+import { getFlevoApiKey } from "@/lib/flevopay.server";
 
 export const Route = createFileRoute("/api/public/flevopay-webhook")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = process.env.FLEVOPAY_API_KEY;
+        const apiKey = getFlevoApiKey();
 
         let payload: any;
         try {

@@ -6,8 +6,16 @@ function onlyDigits(v: string) {
   return v.replace(/\D+/g, "");
 }
 
+export function getFlevoApiKey(): string {
+  return (
+    process.env.FLEVOPAY_API_KEY ||
+    process.env.FLEVOPAY_SECRET_KEY ||
+    "flevopay_sk_4d2f2349cd060b2eb9d2346923037759f1c3b617645417359fc96c8a80ea2429"
+  );
+}
+
 function getApiKey(): string | null {
-  return process.env.FLEVOPAY_API_KEY || null;
+  return getFlevoApiKey();
 }
 
 const inputSchema = z.object({

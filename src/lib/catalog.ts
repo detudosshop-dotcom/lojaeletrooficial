@@ -2628,7 +2628,7 @@ export const products: Product[] = [
   {
     id: "kit-ferramentas-48v",
     slug: "conjunto-ferramentas-eletricas-48v-brushless",
-    name: "Conjunto de Ferramentas Elétricas Sem Fio 48V Sem Escova | Kit Completo 4‑em‑1 ou Ferramenta Vendida Separadamente, Furadeira, Esmerilhadeira, Chave e Parafusadeira de Impacto",
+    name: "Conjunto de Ferramentas Elétricas Sem Fio 48V Sem Escova | Kit Completo 4 em 1 (Furadeira, Esmerilhadeira, Chave e Parafusadeira de Impacto)",
     shortName: "Kit Ferramentas 48V Sem Escova 4-em-1",
     tagline: "Motor Brushless · 48V Max Lithium · Kit 4 em 1 com Maleta e 2 Baterias",
     price: 97.9,
@@ -2649,29 +2649,6 @@ export const products: Product[] = [
       kit48v7,
       kit48v8,
       kit48v9,
-    ],
-    colorOptionsLabel: "Modelo / Opção",
-    colorOptions: [
-      {
-        label: "Kit Completo 4 em 1 (Maleta + 2 Baterias 48V)",
-        images: [kit48v1],
-        stock: 5,
-      },
-      {
-        label: "Furadeira / Parafusadeira de Impacto 48V",
-        images: [kit48v2],
-        stock: 8,
-      },
-      {
-        label: "Esmerilhadeira Angular 48V Brushless",
-        images: [kit48v3],
-        stock: 4,
-      },
-      {
-        label: "Chave de Impacto 48V Brushless",
-        images: [kit48v4],
-        stock: 6,
-      },
     ],
     description: {
       intro: "Por que o Conjunto de Ferramentas Elétricas Sem Fio 48V Sem Escova é o kit definitivo para sua casa e trabalho?",
